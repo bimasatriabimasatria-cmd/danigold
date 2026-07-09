@@ -4,35 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="fil.jpeg">
-    <title>Dani Gold - Toko Emas Terpercaya & Jual Logam Mulia</title>
-    <meta name="description" content="Toko emas Dani Gold menyediakan logam mulia bersertifikat Antam & UBS, cincin kawin, dan perhiasan emas berkualitas dengan jaminan harga buyback transparan.">
-    <meta name="keywords" content="dani gold, toko emas terdekat, jual emas, logam mulia antam, cincin kawin emas, investasi emas">
+    <title>Dani Gold - Pusat Jual Beli & Buyback Logam Mulia</title>
+    <meta name="description" content="Pusat layanan buyback logam mulia Antam, UBS, Dinar, dan emas batangan dengan harga tertinggi, transparan, dan pencairan dana seketika di Dani Gold.">
+    <meta name="keywords" content="dani gold, buyback emas, jual logam mulia antam, jual emas ubs, harga buyback emas hari ini, emas batangan, dinar">
     <style>
-        /* === PENGATURAN DASAR (TEMA ELEGAN EMAS & HITAM) === */
+        /* === PENGATURAN DASAR (TEMA DARK LUXURY GOLD) === */
         :root {
-            --primary-color: #1a1a1a; /* Hitam Elegan */
-            --secondary-color: #d4af37; /* Emas Premium */
-            --text-color: #333333;
-            --bg-light: #fcfbf9; /* Putih hangat / Ivory */
+            --bg-dark: #0a0a0a; /* Hitam pekat mewah */
+            --bg-card: #151515; /* Abu-abu sangat gelap untuk kartu */
+            --gold-primary: #d4af37; /* Emas solid */
+            --gold-light: #FFF2CD; /* Emas terang (highlight) */
+            /* Gradasi Emas Metalik untuk efek mengkilap */
+            --gold-gradient: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            --gold-glow: 0 0 20px rgba(212, 175, 55, 0.4);
+            --text-light: #e0e0e0;
+            --text-muted: #a0a0a0;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Playfair Display', 'Segoe UI', Tahoma, serif; /* Font bernuansa klasik/elegan */
+            font-family: 'Playfair Display', 'Segoe UI', Tahoma, serif;
         }
 
         body {
-            color: var(--text-color);
+            color: var(--text-light);
             line-height: 1.6;
-            background-color: var(--bg-light);
+            background-color: var(--bg-dark);
+        }
+
+        /* === CLASS KHUSUS TEKS EMAS MENGKILAP === */
+        .emas-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         /* === BAGIAN HEADER & NAVIGASI === */
         header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.1); /* Bayangan bernuansa emas tipis */
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--gold-primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             position: fixed;
             width: 100%;
             top: 0;
@@ -43,7 +58,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
+            padding: 12px 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -51,123 +66,140 @@
         .logo-wrapper {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             text-decoration: none;
         }
 
         .logo-img {
-            height: 45px;
+            height: 50px;
             width: auto;
             object-fit: contain;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            border: 1px solid var(--gold-primary);
         }
 
         .logo-text {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: bold;
-            color: var(--primary-color);
-            letter-spacing: 1px;
+            color: white;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
         
         .logo-text span {
-            color: var(--secondary-color);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 600;
+            color: var(--text-light);
+            font-weight: 500;
             font-family: 'Segoe UI', sans-serif;
-            font-size: 0.95rem;
-            transition: color 0.3s;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--secondary-color);
+            color: var(--gold-light);
+            text-shadow: 0 0 8px rgba(255, 242, 205, 0.6);
         }
 
         /* === BAGIAN HERO (BANNER UTAMA) === */
         .hero {
-            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1200&q=80') center/cover;
-            color: white;
-            padding: 180px 5% 120px;
+            background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.95)), url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1200&q=80') center/cover;
+            padding: 200px 5% 150px;
             text-align: center;
+            border-bottom: 1px solid #333;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 4px 10px rgba(0,0,0,0.8);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
+            font-size: 1.3rem;
+            max-width: 800px;
             margin: 0 auto 40px;
-            color: #f1f1f1;
+            color: #ccc;
             font-family: 'Segoe UI', sans-serif;
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 15px 35px;
+            background: var(--gold-gradient);
+            color: #000;
+            padding: 16px 40px;
             text-decoration: none;
-            border-radius: 3px;
-            font-weight: bold;
+            border-radius: 4px;
+            font-weight: 800;
             font-family: 'Segoe UI', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             transition: all 0.3s;
+            border: none;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
         .btn:hover {
-            background-color: #b5952f;
-            color: white;
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--gold-glow);
+            color: #000;
         }
 
-        /* === BAGIAN TENTANG KAMI === */
+        /* === BAGIAN UMUM (SECTION) === */
         .section {
-            padding: 80px 5%;
+            padding: 100px 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: var(--primary-color);
+            font-size: 3rem;
+            margin-bottom: 50px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--secondary-color);
-            margin: 15px auto 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gold-gradient);
+            margin: 20px auto 0;
+            border-radius: 2px;
         }
 
+        /* === TENTANG KAMI === */
         .about-content {
             display: flex;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
 
         .about-image {
             flex: 1;
-            border-radius: 5px;
+            border-radius: 8px;
             overflow: hidden; 
-            box-shadow: 10px 10px 0px var(--secondary-color);
+            box-shadow: -15px 15px 0px rgba(212, 175, 55, 0.2);
+            border: 2px solid var(--gold-primary);
         }
 
         .about-img {
@@ -175,76 +207,170 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.7s ease;
         }
 
         .about-image:hover .about-img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .about-text {
             flex: 1;
             font-family: 'Segoe UI', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+        }
+        
+        .about-text strong {
+            color: var(--gold-light);
         }
 
-        /* === BAGIAN LAYANAN / PRODUK === */
+        /* === KARTU LAYANAN / PRODUK === */
         .services {
-            background-color: var(--bg-light);
+            background-color: #0d0d0d;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
         }
 
         .grid-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
 
         .card {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             text-align: center;
-            transition: transform 0.3s;
-            border: 1px solid #eee;
+            transition: all 0.4s ease;
+            border: 1px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Efek garis emas di atas kartu */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            border-color: var(--secondary-color);
+            border-color: var(--gold-primary);
+            box-shadow: var(--gold-glow);
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
         }
 
         .card h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold-light);
+            font-size: 1.8rem;
+            letter-spacing: 1px;
         }
         
         .card p {
             font-family: 'Segoe UI', sans-serif;
-            color: #666;
+            color: var(--text-muted);
         }
 
-        /* === FITUR 1: HOVER-TO-ZOOM === */
+        /* === FITUR HOVER-TO-ZOOM === */
         .img-zoom-container {
             width: 100%;
             height: 250px;
             overflow: hidden;
-            border-radius: 3px;
-            margin-bottom: 20px;
+            border-radius: 5px;
+            margin-bottom: 25px;
             position: relative;
+            border: 1px solid #222;
         }
 
         .zoom-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s ease;
+            opacity: 0.9;
         }
 
         .img-zoom-container:hover .zoom-img {
-            transform: scale(1.5);
+            transform: scale(1.3);
+            opacity: 1;
             cursor: zoom-in;
+        }
+
+        /* === MARQUEE LOGO (PLAT EMAS) === */
+        .marquee-section {
+            background: linear-gradient(to right, #050505, #111, #050505);
+            padding: 60px 0;
+            overflow: hidden; 
+            border-top: 1px solid #222;
+        }
+
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        /* Menutup ujung marquee agar memudar rapi di tema gelap */
+        .marquee-container::before, .marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+        .marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, #050505, transparent);
+        }
+        .marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, #050505, transparent);
+        }
+
+        .marquee-track {
+            display: inline-block;
+            animation: scroll-marquee 20s linear infinite; 
+        }
+
+        .logo-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px; 
+            width: 200px;
+            margin: 0 20px;
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            color: var(--gold-light);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 4px;
+            vertical-align: middle;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5), inset 0 0 10px rgba(212, 175, 55, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes scroll-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* === KONTAK === */
@@ -254,21 +380,31 @@
             justify-content: center;
             text-align: center;
             font-family: 'Segoe UI', sans-serif;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #333;
         }
 
         .contact-info p {
             margin-bottom: 15px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+        
+        .contact-info strong {
+            color: var(--gold-primary);
         }
 
         /* === FOOTER === */
         footer {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
+            background-color: #000;
+            color: var(--gold-primary);
             text-align: center;
             padding: 30px 20px;
             font-family: 'Segoe UI', sans-serif;
-            border-top: 3px solid var(--secondary-color);
+            border-top: 1px solid var(--gold-primary);
+            letter-spacing: 1px;
         }
 
         /* === RESPONSIVE (HP) === */
@@ -281,16 +417,14 @@
         .menu-toggle .bar {
             width: 25px;
             height: 3px;
-            background-color: var(--primary-color);
+            background: var(--gold-gradient);
             margin: 4px 0;
             transition: all 0.3s ease;
         }
 
         @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-            .hero h1 { font-size: 2.2rem; }
+            .about-content { flex-direction: column; }
+            .hero h1 { font-size: 2.5rem; }
             .menu-toggle { display: flex; }
             .nav-links {
                 display: flex;
@@ -299,12 +433,11 @@
                 top: 75px;
                 left: -100%;
                 width: 100%;
-                background-color: #ffffff;
+                background-color: rgba(10, 10, 10, 0.98);
                 text-align: center;
                 transition: left 0.3s ease;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                border-bottom: 2px solid var(--gold-primary);
                 padding: 20px 0;
-                border-top: 1px solid var(--secondary-color);
             }
             .nav-links.active { left: 0; }
             .nav-links li { margin: 15px 0; }
@@ -318,12 +451,12 @@
             bottom: 30px;
             right: 30px;
             background-color: #25d366;
-            color: white;
+            border: 2px solid #FFF2CD;
             border-radius: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
             z-index: 9999;
             transition: transform 0.3s ease;
         }
@@ -342,46 +475,6 @@
             transition: all 0.8s ease-out;
         }
 
-        /* === MARQUEE LOGO (SERTIFIKASI/MITRA) === */
-        .marquee-section {
-            background-color: #111;
-            padding: 40px 0;
-            overflow: hidden; 
-        }
-
-        .marquee-container {
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-        }
-
-        .marquee-track {
-            display: inline-block;
-            animation: scroll-marquee 15s linear infinite; 
-        }
-
-        .logo-box {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 80px; 
-            width: 160px;
-            margin: 0 20px;
-            color: var(--secondary-color);
-            font-weight: bold;
-            font-size: 1.2rem;
-            border: 1px solid var(--secondary-color);
-            border-radius: 5px;
-            vertical-align: middle;
-            background-color: rgba(212, 175, 55, 0.05);
-        }
-
-        @keyframes scroll-marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
         /* === AI CHATBOT WIDGET === */
         .ai-chat-widget {
             position: fixed;
@@ -394,14 +487,14 @@
         .ai-chat-btn {
             width: 60px;
             height: 60px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
+            background: var(--gold-gradient);
+            color: #000;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: var(--gold-glow);
             transition: transform 0.3s;
         }
 
@@ -412,29 +505,29 @@
             flex-direction: column;
             width: 320px;
             height: 450px;
-            background-color: white;
+            background-color: var(--bg-card);
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             position: absolute;
             bottom: 75px;
             right: 0;
             overflow: hidden;
-            border: 1px solid var(--secondary-color);
+            border: 1px solid var(--gold-primary);
         }
 
         .ai-chat-window.active { display: flex; }
 
         .ai-chat-header {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
+            background: var(--gold-gradient);
+            color: #000;
             padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--secondary-color);
         }
 
-        .ai-chat-close { cursor: pointer; font-size: 1.5rem; }
+        .ai-chat-header h4 { font-weight: 800; font-family: 'Segoe UI', sans-serif; }
+        .ai-chat-close { cursor: pointer; font-size: 1.5rem; font-weight: bold; }
 
         .ai-chat-messages {
             flex: 1;
@@ -443,28 +536,30 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            background-color: var(--bg-light);
+            background-color: #0a0a0a;
         }
 
-        .msg { max-width: 85%; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; }
-        .msg.bot { background-color: #f1f1f1; color: var(--primary-color); align-self: flex-start; }
-        .msg.user { background-color: var(--secondary-color); color: var(--primary-color); font-weight: 500; align-self: flex-end; }
+        .msg { max-width: 85%; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; line-height: 1.4; }
+        .msg.bot { background-color: #1a1a1a; color: #ddd; align-self: flex-start; border: 1px solid #333; }
+        .msg.user { background: var(--gold-gradient); color: #000; font-weight: 600; align-self: flex-end; }
 
-        .chat-options { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+        .chat-options { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
         .opt-btn {
-            background-color: white; border: 1px solid var(--secondary-color); color: var(--primary-color);
-            padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; transition: 0.2s;
+            background-color: #111; border: 1px solid var(--gold-primary); color: var(--gold-primary);
+            padding: 6px 12px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; transition: 0.2s;
         }
-        .opt-btn:hover { background-color: var(--secondary-color); }
+        .opt-btn:hover { background: var(--gold-gradient); color: #000; }
 
         .ai-chat-input-area {
-            display: flex; padding: 10px; border-top: 1px solid #eee; background-color: white;
+            display: flex; padding: 10px; border-top: 1px solid #333; background-color: #111;
         }
         .ai-chat-input-area input {
-            flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none;
+            flex: 1; padding: 10px; border: 1px solid #444; border-radius: 20px; outline: none;
+            background-color: #222; color: white;
         }
+        .ai-chat-input-area input::placeholder { color: #888; }
         .ai-chat-send {
-            background: none; border: none; color: var(--secondary-color); font-weight: bold; padding: 0 10px; cursor: pointer;
+            background: none; border: none; color: var(--gold-primary); font-weight: bold; padding: 0 10px; cursor: pointer; text-transform: uppercase;
         }
     </style>
 </head>
@@ -473,9 +568,7 @@
     <!-- HEADER / NAVIGASI -->
     <header>
         <div class="nav-container">
-            
             <a href="#" class="logo-wrapper">
-                <!-- Masukkan nama file logomu di bagian src="" -->
                 <img src="fil.jpeg" alt="Logo Dani Gold" class="logo-img">
                 <span class="logo-text">Dani <span>Gold</span></span>
             </a>
@@ -489,7 +582,7 @@
             <ul class="nav-links">
                 <li><a href="#beranda">Beranda</a></li>
                 <li><a href="#tentang">Tentang Kami</a></li>
-                <li><a href="#koleksi">Koleksi</a></li>
+                <li><a href="#layanan-buyback">Layanan Buyback</a></li>
                 <li><a href="#harga-terkini">Harga Hari Ini</a></li>
             </ul>
         </div>
@@ -497,82 +590,86 @@
 
     <!-- HERO SECTION -->
     <section id="beranda" class="hero reveal">
-        <h1>Kemewahan Abadi dalam Genggaman Anda</h1>
-        <p>Temukan koleksi perhiasan eksklusif dan logam mulia bersertifikat untuk investasi masa depan yang gemilang bersama Dani Gold.</p>
-        <a href="#koleksi" class="btn">Lihat Koleksi Kami</a>
+        <h1>Cairkan Logam Mulia Anda dengan <span class="emas-text">Harga Maksimal</span></h1>
+        <p>Pusat layanan Jual Beli & Buyback Logam Mulia terpercaya. Kami menerima Antam, UBS, dan emas batangan dengan transparansi harga dan pencairan dana seketika.</p>
+        <a href="#harga-terkini" class="btn">Cek Harga Buyback</a>
     </section>
 
     <!-- TENTANG KAMI -->
     <section id="tentang" class="section reveal">
-        <h2 class="section-title">Filosofi Dani Gold</h2>
+        <h2 class="section-title">Komitmen Transparansi Kami</h2>
         <div class="about-content">
             <div class="about-image">
                 <img src="fil.jpeg" alt="Toko Dani Gold" class="about-img">
             </div>
             <div class="about-text">
-                <p>Didirikan dengan dedikasi pada keindahan dan keaslian, <strong>Dani Gold</strong> telah menjadi mitra terpercaya bagi ribuan pelanggan dalam merayakan momen istimewa dan merencanakan masa depan keuangan.</p>
+                <p><strong>Dani Gold</strong> berdedikasi untuk memberikan pengalaman pencairan dana (buyback) emas yang jujur, aman, dan tanpa prosedur yang berbelit-belit.</p>
                 <br>
-                <p>Kami menjamin setiap gram emas yang Anda beli memiliki kemurnian presisi, bersertifikat resmi, serta didukung oleh kebijakan <em>Buyback</em> (beli kembali) yang transparan dan menguntungkan.</p>
+                <p>Kami memahami bahwa emas adalah instrumen investasi Anda. Oleh karena itu, kami memberikan jaminan pengecekan kadar yang presisi di depan Anda, serta penawaran harga beli kembali yang sangat kompetitif dan mengikuti pergerakan pasar global.</p>
             </div>
         </div>
     </section>
 
-    <!-- KOLEKSI PRODUK (STATIS) -->
-    <section id="koleksi" class="section services reveal">
-        <h2 class="section-title">Koleksi Unggulan</h2>
+    <!-- LAYANAN BUYBACK -->
+    <section id="layanan-buyback" class="section services reveal">
+        <h2 class="section-title">Layanan Buyback Kami</h2>
         <div class="grid-cards">
             <div class="card reveal">
                 <div class="img-zoom-container">
-                    <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=600&q=80" alt="Cincin Berlian" class="zoom-img">
+                    <img src="https://www.bitgold.id/product/20250522122818682eb5f27c98d.png" alt="Logam Mulia Antam & UBS" class="zoom-img">
                 </div>
-                <h3>Cincin Pernikahan</h3>
-                <p>Desain elegan dan tak lekang oleh waktu, dirancang khusus untuk mengikat janji suci Anda.</p>
+                <h3>Logam Mulia Bersertifikat</h3>
+                <p>Kami menerima buyback Logam Mulia Antam, UBS, dan Minigold berbagai gramasi dengan atau tanpa kemasan utuh.</p>
             </div>
             <div class="card reveal">
                 <div class="img-zoom-container">
-                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="Logam Mulia" class="zoom-img">
+                    <img src="https://indodax.com/academy/wp-content/uploads/2024/08/Dinar-Dirham-2-1024x576.webp" alt="Koin Dinar" class="zoom-img">
                 </div>
-                <h3>Logam Mulia (LM)</h3>
-                <p>Investasi cerdas yang aman dari inflasi. Tersedia sertifikat Antam dan UBS mulai dari 0.5 gram.</p>
+                <h3>Dinar & Dirham</h3>
+                <p>Pencairan koin Dinar Emas dan Dirham Perak dari berbagai antam dan percetakan dengan harga transparan.</p>
             </div>
             <div class="card reveal">
                 <div class="img-zoom-container">
-                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=600&q=80" alt="Kalung Emas" class="zoom-img">
+                    <img src="https://bucket.pegadaian.co.id/cms-webcorp-bucket/cmpqwhmut000701o13nfa65mj.webp" alt="Emas Batangan" class="zoom-img">
                 </div>
-                <h3>Perhiasan Fashion</h3>
-                <p>Kalung, gelang, dan anting dengan kadar emas pas (17K - 24K) mengikuti tren terkini.</p>
+                <h3>Emas Batangan / Cukim</h3>
+                <p>Pengecekan presisi untuk emas lantakan, cukim, atau emas batangan lokal tanpa surat dengan harga sesuai kadar murni.</p>
             </div>
         </div>
     </section>
 
     <!-- KATALOG DINAMIS (HARGA UPDATE GOOGLE SHEETS) -->
     <section id="harga-terkini" class="section services">
-        <h2 class="section-title">Katalog & Harga Terkini</h2>
-        <p style="text-align: center; margin-top: -20px; margin-bottom: 30px; font-family: 'Segoe UI', sans-serif;">Harga di bawah ini diperbarui secara otomatis mengikuti fluktuasi pasar.</p>
+        <h2 class="section-title">Update Harga Buyback Hari Ini</h2>
+        <p style="text-align: center; margin-top: -30px; margin-bottom: 40px; font-family: 'Segoe UI', sans-serif; color: var(--text-muted);">
+            Harga beli kembali (buyback) diperbarui otomatis mengikuti pasar spot hari ini.
+        </p>
         
         <div class="grid-cards" id="daftar-barang-gudang">
-            <p style="text-align: center; width: 100%; font-family: 'Segoe UI', sans-serif;">Sedang memuat harga emas hari ini...</p>
+            <p style="text-align: center; width: 100%; font-family: 'Segoe UI', sans-serif; color: var(--gold-primary);">
+                <em>Memuat data harga emas terkini dari server...</em>
+            </p>
         </div>
     </section>
 
     <!-- MARQUEE (SERTIFIKASI & JAMINAN) -->
     <section class="marquee-section reveal">
-        <h2 class="section-title" style="color: var(--secondary-color); margin-bottom: 30px; border: none;">Jaminan Mutu & Keaslian</h2>
+        <h2 class="section-title" style="margin-bottom: 40px;">Kelebihan Dani Gold</h2>
         <div class="marquee-container">
             <div class="marquee-track">
                 <!-- KELOMPOK LOGO 1 -->
-                <div class="logo-box">Bersertifikat SNI</div>
-                <div class="logo-box">Emas Antam</div>
-                <div class="logo-box">Emas UBS</div>
-                <div class="logo-box">Buyback 100%</div>
-                <div class="logo-box">Kadar Akurat</div>
+                <div class="logo-box">Pencairan Cepat</div>
+                <div class="logo-box">Cek Kadar Akurat</div>
+                <div class="logo-box">Harga Tertinggi</div>
+                <div class="logo-box">Transparan</div>
+                <div class="logo-box">Terima Tanpa Surat</div>
                 
                 <!-- KELOMPOK LOGO 2 (DUPLIKAT) -->
-                <div class="logo-box">Bersertifikat SNI</div>
-                <div class="logo-box">Emas Antam</div>
-                <div class="logo-box">Emas UBS</div>
-                <div class="logo-box">Buyback 100%</div>
-                <div class="logo-box">Kadar Akurat</div>
+                <div class="logo-box">Pencairan Cepat</div>
+                <div class="logo-box">Cek Kadar Akurat</div>
+                <div class="logo-box">Harga Tertinggi</div>
+                <div class="logo-box">Transparan</div>
+                <div class="logo-box">Terima Tanpa Surat</div>
             </div>
         </div>
     </section>
@@ -582,8 +679,8 @@
         <h2 class="section-title">Kunjungi Galeri Kami</h2>
         <div class="contact-content">
             <div class="contact-info">
-                <p><strong>Alamat Toko:</strong> Jl. Jend. Sudirman No. 99, Komplek Ruko Permata, Kota, Indonesia</p>
-                <p><strong>Telepon / WhatsApp:</strong> +62 85692232383 / +62 81296519007</p>
+                <p><strong>Alamat Kantor:</strong> Jl. Jend. Sudirman No. 99, Komplek Ruko Permata, Kota, Indonesia</p>
+                <p><strong>Telepon / WhatsApp:</strong> +62 856 9223 2383 / +62 812 9651 9007</p>
                 <p><strong>Jam Operasional:</strong> Senin - Minggu (09:00 - 18:00)</p>
             </div>
         </div>
@@ -591,11 +688,11 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Dani Gold. All Rights Reserved. Investasi Aman, Masa Depan Nyaman.</p>
+        <p>&copy; 2026 Dani Gold. All Rights Reserved. Transaksi Jujur, Hati Tenang.</p>
     </footer>
 
     <!-- TOMBOL WHATSAPP -->
-    <a href="https://wa.me/6285692232383?text=Halo%20Dani%20Gold,%20saya%20ingin%20bertanya%20mengenai%20harga%20emas%20hari%20ini." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/6285692232383?text=Halo%20Dani%20Gold,%20saya%20ingin%20bertanya%20mengenai%20potongan%20harga%20buyback%20emas%20hari%20ini." class="whatsapp-float" target="_blank">
         <svg viewBox="0 0 32 32" class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.05 2.05c-7.7 0-14 6.3-14 14 0 2.45.65 4.8 1.85 6.95L2 30l7.2-1.9c2.05 1.1 4.35 1.7 6.8 1.7 7.7 0 14-6.3 14-14s-6.3-14-13.95-14zm0 25.65c-2.1 0-4.15-.55-5.95-1.6l-.4-.25-4.4 1.15 1.2-4.3-.25-.45c-1.15-1.85-1.75-4-1.75-6.2 0-6.35 5.15-11.5 11.5-11.5s11.5 5.15 11.5 11.5-5.15 11.5-11.5 11.5zm6.3-8.6c-.35-.15-2.05-1-2.35-1.1-.3-.1-.5-.15-.7.15s-.9 1.1-1.1 1.35c-.2.25-.4.25-.75.1-2.1-1-3.65-2.4-5.1-4.65-.2-.3-.05-.45.1-.6.15-.15.35-.4.5-.6.15-.2.2-.35.3-.55.1-.2.05-.4-.05-.55-.1-.15-.7-1.7-1-2.35-.25-.6-.5-.5-.7-.5h-.6c-.2 0-.5.05-.75.35-.25.3-1 1-1 2.45s1.05 2.85 1.2 3.05c.15.2 2.05 3.15 5 4.4 1.85.8 2.6.9 3.55.75 1-.15 2.05-.85 2.35-1.65.3-.85.3-1.6.2-1.75-.1-.15-.3-.25-.65-.4z"/>
         </svg>
@@ -643,21 +740,21 @@
         </div>
         <div class="ai-chat-window" id="ai-chat-window">
             <div class="ai-chat-header">
-                <h4 style="margin:0;">DaniBot - Asisten Emas</h4>
+                <h4 style="margin:0;">DaniBot - Asisten Buyback</h4>
                 <span class="ai-chat-close" id="ai-chat-close">&times;</span>
             </div>
             <div class="ai-chat-messages" id="ai-chat-messages">
                 <div class="msg bot">
-                    Halo! Selamat datang di Dani Gold. Ada yang bisa kami bantu seputar investasi atau perhiasan?
+                    Halo! Selamat datang di pusat Buyback Dani Gold. Ada yang ingin Anda tanyakan seputar pencairan emas hari ini?
                     <div class="chat-options">
-                        <button class="opt-btn" onclick="sendOption('Harga Hari Ini?')">Harga Hari Ini?</button>
-                        <button class="opt-btn" onclick="sendOption('Syarat Jual Kembali (Buyback)?')">Syarat Buyback?</button>
-                        <button class="opt-btn" onclick="sendOption('Apakah emas asli?')">Keaslian?</button>
+                        <button class="opt-btn" onclick="sendOption('Harga Buyback Hari Ini?')">Harga Buyback?</button>
+                        <button class="opt-btn" onclick="sendOption('Terima emas tanpa surat?')">Tanpa Surat?</button>
+                        <button class="opt-btn" onclick="sendOption('Cara pencairan dana?')">Pencairan Dana?</button>
                     </div>
                 </div>
             </div>
             <div class="ai-chat-input-area">
-                <input type="text" id="ai-chat-input" placeholder="Tanya sesuatu...">
+                <input type="text" id="ai-chat-input" placeholder="Ketik pesan Anda...">
                 <button class="ai-chat-send" id="ai-chat-send">Kirim</button>
             </div>
         </div>
@@ -703,16 +800,16 @@
 
         function getBotResponse(input) {
             const text = input.toLowerCase();
-            if (text.includes('harga') || text.includes('hari ini')) {
-                return "Harga emas berfluktuasi setiap hari. Silakan cek bagian 'Katalog & Harga Terkini' di website ini atau hubungi admin WhatsApp kami untuk harga Real-Time.";
+            if (text.includes('harga') || text.includes('hari ini') || text.includes('buyback')) {
+                return "Harga buyback kami mengikuti pergerakan grafik pasar spot hari ini. Silakan cek tabel harga di halaman ini atau hubungi admin via WhatsApp untuk negosiasi kuantiti besar.";
             }
-            if (text.includes('jual') || text.includes('buyback') || text.includes('kembali')) {
-                return "Kami menerima Buyback (jual kembali) dengan potongan harga transparan sesuai kesepakatan awal, asalkan nota pembelian dari Dani Gold disertakan.";
+            if (text.includes('surat') || text.includes('tanpa nota') || text.includes('hilang')) {
+                return "Tentu, kami menerima emas dan logam mulia meskipun tanpa surat atau nota pembelian awal. Kami akan melakukan pengecekan kadar secara transparan di tempat.";
             }
-            if (text.includes('asli') || text.includes('sertifikat') || text.includes('kadar')) {
-                return "Semua emas kami dijamin 100% asli dengan kadar yang presisi. Logam Mulia kami juga disertai sertifikat resmi (Antam/UBS).";
+            if (text.includes('cair') || text.includes('dana') || text.includes('uang') || text.includes('transfer')) {
+                return "Pencairan dana sangat cepat. Setelah Anda setuju dengan taksiran harga, dana akan langsung kami transfer ke rekening Anda saat itu juga.";
             }
-            return "Terima kasih. Untuk pertanyaan lebih spesifik atau pemesanan kustom, silakan klik tombol WhatsApp hijau di layar untuk berbicara langsung dengan admin kami.";
+            return "Terima kasih atas pesan Anda. Agar kami bisa memberikan estimasi harga yang paling akurat, silakan klik tombol WhatsApp hijau di pojok kanan bawah untuk mengobrol langsung dengan tim penilai (appraiser) kami.";
         }
     </script>
 
@@ -727,31 +824,32 @@
                 const response = await fetch(sheetCsvUrl);
                 const dataText = await response.text();
                 const barisData = dataText.split('\n');
-                barisData.shift(); // Hapus Header Excel
+                barisData.shift(); 
                 
                 let htmlKartu = '';
                 barisData.forEach(baris => {
                     if(baris.trim() !== '') {
                         const kolom = baris.split(','); 
-                        const namaBarang = kolom[0] || 'Perhiasan';
-                        const deskripsi = kolom[1] || ''; // Contoh: Kadar 75% - 5 Gram
-                        const stok = kolom[2] || 'Tanya Admin';
+                        const namaBarang = kolom[0] || 'Logam Mulia';
+                        const deskripsi = kolom[1] || ''; 
+                        const stok = kolom[2] || 'Siap Dana';
                         const harga = kolom[3] || 'Cek WhatsApp';
                         const linkGambar = kolom[4] || 'https://images.unsplash.com/photo-1599643478524-fb524a87c920?w=600&q=80';
 
+                        // DIUPDATE: Gaya HTML injeksi Javascript diubah agar cocok dengan tema gelap (Teks Putih/Emas)
                         htmlKartu += `
-                            <div class="card reveal active" style="text-align: left; font-family: 'Segoe UI', sans-serif;">
-                                <div class="img-zoom-container">
+                            <div class="card reveal active" style="text-align: left; font-family: 'Segoe UI', sans-serif; background: #151515; border: 1px solid #333;">
+                                <div class="img-zoom-container" style="border: 1px solid #222;">
                                     <img src="${linkGambar.trim()}" alt="${namaBarang}" class="zoom-img">
                                 </div>
-                                <h3 style="margin-bottom: 5px; font-family: 'Playfair Display', serif;">${namaBarang}</h3>
-                                <p style="font-size: 0.9rem; margin-bottom: 15px;">${deskripsi}</p>
-                                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 15px;">
+                                <h3 style="margin-top: 15px; margin-bottom: 5px; font-family: 'Playfair Display', serif; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${namaBarang}</h3>
+                                <p style="font-size: 0.95rem; margin-bottom: 20px; color: #a0a0a0;">${deskripsi}</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #333; padding-top: 20px;">
                                     <div>
-                                        <span style="display: block; font-size: 0.8rem; color: #888;">Status: <span style="color:var(--secondary-color); font-weight:bold;">${stok}</span></span>
-                                        <span style="font-weight: bold; font-size: 1.1rem; color: var(--primary-color);">${harga}</span>
+                                        <span style="display: block; font-size: 0.8rem; color: #888;">Layanan: <span style="color:var(--gold-primary); font-weight:bold;">${stok}</span></span>
+                                        <span style="font-weight: bold; font-size: 1.2rem; color: var(--gold-light);">${harga}</span>
                                     </div>
-                                    <a href="https://wa.me/6285692232383?text=Halo%20Dani%20Gold,%20saya%20ingin%20tanya%20${encodeURIComponent(namaBarang)}" target="_blank" class="opt-btn" style="text-decoration: none;">Tanya Admin</a>
+                                    <a href="https://wa.me/6285692232383?text=Halo%20Dani%20Gold,%20saya%20ingin%20tanya%20harga%20buyback%20untuk%20${encodeURIComponent(namaBarang)}" target="_blank" class="opt-btn" style="text-decoration: none; background: var(--gold-gradient); color: #000; padding: 10px 15px; border-radius: 4px; font-weight: bold;">Cairkan</a>
                                 </div>
                             </div>
                         `;
@@ -760,7 +858,7 @@
                 wadahBarang.innerHTML = htmlKartu;
             } catch (error) {
                 console.error("Gagal mengambil data dari spreadsheet:", error);
-                wadahBarang.innerHTML = '<p style="text-align: center; color: red;">Katalog sedang diperbarui. Silakan hubungi kami via WhatsApp.</p>';
+                wadahBarang.innerHTML = '<p style="text-align: center; color: var(--gold-primary);">Daftar harga sedang diperbarui. Silakan hubungi kami via WhatsApp untuk harga terkini.</p>';
             }
         }
         ambilDataGudang();
