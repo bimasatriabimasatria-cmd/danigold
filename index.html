@@ -479,92 +479,6 @@
             transition: all 0.8s ease-out;
         }
 
-        /* === AI CHATBOT WIDGET === */
-        .ai-chat-widget {
-            position: fixed;
-            bottom: 105px;
-            right: 30px;
-            z-index: 9998;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        .ai-chat-btn {
-            width: 60px;
-            height: 60px;
-            background: var(--gold-gradient);
-            color: #000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--gold-glow);
-            transition: transform 0.3s;
-        }
-
-        .ai-chat-btn:hover { transform: scale(1.1); }
-
-        .ai-chat-window {
-            display: none;
-            flex-direction: column;
-            width: 320px;
-            height: 450px;
-            background-color: var(--bg-card);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            position: absolute;
-            bottom: 75px;
-            right: 0;
-            overflow: hidden;
-            border: 1px solid var(--gold-primary);
-        }
-
-        .ai-chat-window.active { display: flex; }
-
-        .ai-chat-header {
-            background: var(--gold-gradient);
-            color: #000;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .ai-chat-header h4 { font-weight: 800; font-family: 'Segoe UI', sans-serif; }
-        .ai-chat-close { cursor: pointer; font-size: 1.5rem; font-weight: bold; }
-
-        .ai-chat-messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            background-color: #0a0a0a;
-        }
-
-        .msg { max-width: 85%; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; line-height: 1.4; }
-        .msg.bot { background-color: #1a1a1a; color: #ddd; align-self: flex-start; border: 1px solid #333; }
-        .msg.user { background: var(--gold-gradient); color: #000; font-weight: 600; align-self: flex-end; }
-
-        .chat-options { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
-        .opt-btn {
-            background-color: #111; border: 1px solid var(--gold-primary); color: var(--gold-primary);
-            padding: 6px 12px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; transition: 0.2s;
-        }
-        .opt-btn:hover { background: var(--gold-gradient); color: #000; }
-
-        .ai-chat-input-area {
-            display: flex; padding: 10px; border-top: 1px solid #333; background-color: #111;
-        }
-        .ai-chat-input-area input {
-            flex: 1; padding: 10px; border: 1px solid #444; border-radius: 20px; outline: none;
-            background-color: #222; color: white;
-        }
-        .ai-chat-input-area input::placeholder { color: #888; }
-        .ai-chat-send {
-            background: none; border: none; color: var(--gold-primary); font-weight: bold; padding: 0 10px; cursor: pointer; text-transform: uppercase;
-        }
     </style>
 </head>
 <body>
@@ -588,6 +502,7 @@
                 <li><a href="#tentang">Tentang Kami</a></li>
                 <li><a href="#layanan-buyback">Layanan Buyback</a></li>
                 <li><a href="#harga-terkini">Harga Hari Ini</a></li>
+                <li><a href="#kontak">Hubungi Kami</a></li>
             </ul>
         </div>
     </header>
@@ -642,17 +557,31 @@
         </div>
     </section>
 
-    <!-- KATALOG DINAMIS (HARGA UPDATE GOOGLE SHEETS) -->
+    <!-- KATALOG DINAMIS (TABEL HARGA GOLD LUXURY) -->
     <section id="harga-terkini" class="section services reveal">
         <h2 class="section-title">Update Harga Buyback Hari Ini</h2>
-        <p style="text-align: center; margin-top: -30px; margin-bottom: 40px; font-family: 'Segoe UI', sans-serif; color: var(--text-muted);">
-            Harga beli kembali (buyback) diperbarui otomatis mengikuti pasar spot hari ini.
+        <p style="text-align: center; margin-top: -30px; margin-bottom: 30px; font-family: 'Segoe UI', sans-serif; color: var(--text-muted);">
+            Harga beli kembali (buyback) diperbarui otomatis mengikuti pasar spot hari ini. Klik pada nama item untuk langsung berkonsultasi via WhatsApp.
         </p>
         
-        <div class="grid-cards" id="daftar-barang-gudang">
-            <p style="text-align: center; width: 100%; font-family: 'Segoe UI', sans-serif; color: var(--gold-primary);">
-                <em>Memuat data harga emas terkini dari server...</em>
-            </p>
+        <!-- CONTAINER TABEL HARGA -->
+        <div style="overflow-x: auto; max-width: 900px; margin: 0 auto; border-radius: 8px; border: 1px solid var(--gold-primary); box-shadow: var(--gold-glow);">
+            <table style="width: 100%; border-collapse: collapse; font-family: 'Segoe UI', sans-serif; text-align: left; background-color: var(--bg-card);">
+                <thead>
+                    <tr style="background: var(--gold-gradient); color: #000; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 0.95rem;">
+                        <th style="padding: 16px 20px; border-bottom: 2px solid var(--gold-primary);">Nama Item</th>
+                        <th style="padding: 16px 20px; border-bottom: 2px solid var(--gold-primary); text-align: right;">Harga Buyback</th>
+                        <th style="padding: 16px 20px; border-bottom: 2px solid var(--gold-primary); text-align: center;">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="tabel-harga-body">
+                    <tr>
+                        <td colspan="3" style="text-align: center; padding: 30px; color: var(--gold-primary);">
+                            <em>Memuat data harga emas terkini...</em>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
@@ -684,7 +613,16 @@
         <div class="contact-content">
             <div class="contact-info">
                 <p><strong>Alamat Kantor:</strong> Jl. Jend. Sudirman No. 99, Komplek Ruko Permata, Kota, Indonesia</p>
-                <p><strong>Telepon / WhatsApp:</strong> +62 856 9223 2383 / +62 812 9651 9007</p>
+                <p>
+                    <strong>Telepon / WhatsApp:</strong> 
+                    <a href="https://wa.me/6285692232383?text=Halo%20Dani%20Gold,%20saya%20ingin%20bertanya" target="_blank" style="color: #ddd; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold-primary)'" onmouseout="this.style.color='#ddd'">
+                        +62 856 9223 2383
+                    </a> 
+                    / 
+                    <a href="https://wa.me/6281296519007?text=Halo%20Dani%20Gold,%20saya%20ingin%20bertanya" target="_blank" style="color: #ddd; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold-primary)'" onmouseout="this.style.color='#ddd'">
+                        +62 812 9651 9007
+                    </a>
+                </p>
                 <p><strong>Jam Operasional:</strong> Senin - Minggu (09:00 - 18:00)</p>
             </div>
         </div>
@@ -735,137 +673,86 @@
         });
     </script>
 
-    <!-- AI CHATBOT DANI GOLD -->
-    <div class="ai-chat-widget">
-        <div class="ai-chat-btn" id="ai-chat-toggle">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-        </div>
-        <div class="ai-chat-window" id="ai-chat-window">
-            <div class="ai-chat-header">
-                <h4 style="margin:0;">DaniBot - Asisten Buyback</h4>
-                <span class="ai-chat-close" id="ai-chat-close">&times;</span>
-            </div>
-            <div class="ai-chat-messages" id="ai-chat-messages">
-                <div class="msg bot">
-                    Halo! Selamat datang di pusat Buyback Dani Gold. Ada yang ingin Anda tanyakan seputar pencairan emas hari ini?
-                    <div class="chat-options">
-                        <button class="opt-btn" onclick="sendOption('Harga Buyback Hari Ini?')">Harga Buyback?</button>
-                        <button class="opt-btn" onclick="sendOption('Terima emas tanpa surat?')">Tanpa Surat?</button>
-                        <button class="opt-btn" onclick="sendOption('Cara pencairan dana?')">Pencairan Dana?</button>
-                    </div>
-                </div>
-            </div>
-            <div class="ai-chat-input-area">
-                <input type="text" id="ai-chat-input" placeholder="Ketik pesan Anda...">
-                <button class="ai-chat-send" id="ai-chat-send">Kirim</button>
-            </div>
-        </div>
-    </div>
-
+    <!-- SCRIPT GOOGLE SHEETS (TABEL DINAMIS) -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
-        const chatToggle = document.getElementById('ai-chat-toggle');
-        const chatClose = document.getElementById('ai-chat-close');
-        const chatWindow = document.getElementById('ai-chat-window');
-        const chatMessages = document.getElementById('ai-chat-messages');
-        const chatInput = document.getElementById('ai-chat-input');
-        const chatSend = document.getElementById('ai-chat-send');
+        const sheetId = '1v6T3giW-yBn7GajJTxDBCDor7Fw3x26N_NQS4T35SIw';
 
-        chatToggle.addEventListener('click', () => chatWindow.classList.toggle('active'));
-        chatClose.addEventListener('click', () => chatWindow.classList.remove('active'));
-
-        function handleSendMessage() {
-            const text = chatInput.value.trim();
-            if (!text) return;
-            appendMessage(text, 'user');
-            chatInput.value = '';
-            setTimeout(() => {
-                const botReply = getBotResponse(text);
-                appendMessage(botReply, 'bot');
-            }, 800);
+        function muatDataEmas() {
+            const query = new google.visualization.Query(`https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json`);
+            query.send(handleQueryResponse);
         }
 
-        chatSend.addEventListener('click', handleSendMessage);
-        chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSendMessage(); });
+        function handleQueryResponse(response) {
+            const tabelBody = document.getElementById('tabel-harga-body');
+            //const sectionHarga = document.getElementById('harga-terkini');
 
-        function appendMessage(text, sender) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `msg ${sender}`;
-            msgDiv.innerHTML = text;
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
+            // Mencegah section tersembunyi karena efek reveal
+            //if (sectionHarga) {
+            //    sectionHarga.classList.add('active');
+            //    sectionHarga.style.opacity = '1';
+            //    sectionHarga.style.transform = 'none';
+            //}
 
-        function sendOption(opt) {
-            appendMessage(opt, 'user');
-            setTimeout(() => appendMessage(getBotResponse(opt), 'bot'), 600);
-        }
-
-        function getBotResponse(input) {
-            const text = input.toLowerCase();
-            if (text.includes('harga') || text.includes('hari ini') || text.includes('buyback')) {
-                return "Harga buyback kami mengikuti pergerakan grafik pasar spot hari ini. Silakan cek tabel harga di halaman ini atau hubungi admin via WhatsApp untuk negosiasi kuantiti besar.";
+            if (response.isError()) {
+                console.error('Error saat mengambil data:', response.getMessage());
+                tabelBody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 20px; color: var(--gold-primary);">Gagal memuat harga. Silakan hubungi admin via WhatsApp.</td></tr>';
+                return;
             }
-            if (text.includes('surat') || text.includes('tanpa nota') || text.includes('hilang')) {
-                return "Tentu, kami menerima emas dan logam mulia meskipun tanpa surat atau nota pembelian awal. Kami akan melakukan pengecekan kadar secara transparan di tempat.";
-            }
-            if (text.includes('cair') || text.includes('dana') || text.includes('uang') || text.includes('transfer')) {
-                return "Pencairan dana sangat cepat. Setelah Anda setuju dengan taksiran harga, dana akan langsung kami transfer ke rekening Anda saat itu juga.";
-            }
-            return "Terima kasih atas pesan Anda. Agar kami bisa memberikan estimasi harga yang paling akurat, silakan klik tombol WhatsApp hijau di pojok kanan bawah untuk mengobrol langsung dengan tim penilai (appraiser) kami.";
-        }
-    </script>
 
-    <!-- SCRIPT GOOGLE SHEETS (KATALOG DINAMIS) -->
-    <script>
-        // GANTI LINK DI BAWAH INI DENGAN LINK CSV GOOGLE SHEETS DANI GOLD
-        const sheetCsvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRtQgllu8bsKv9hVRGiCdioXrjTuUHOgCvkySbPrX6kikOFAVbglLymsTLkmN4qng7TeISXXUYHqyUg/pub?output=csv';
+            const data = response.getDataTable();
+            const jumlahBaris = data.getNumberOfRows();
+            let htmlBaris = '';
 
-        async function ambilDataGudang() {
-            const wadahBarang = document.getElementById('daftar-barang-gudang');
-            try {
-                const response = await fetch(sheetCsvUrl);
-                const dataText = await response.text();
-                const barisData = dataText.split('\n');
-                barisData.shift(); 
+            // MULAI DARI INDEX 1 UNTUK MENGABAIKAN HEADER TABEL GOOGLE SHEETS
+            for (let i = 1; i < jumlahBaris; i++) {
+                const namaBarang = data.getValue(i, 0) ? data.getValue(i, 0).toString().trim() : '';
                 
-                let htmlKartu = '';
-                barisData.forEach(baris => {
-                    if(baris.trim() !== '') {
-                        const kolom = baris.split(','); 
-                        const namaBarang = kolom[0] || 'Logam Mulia';
-                        const deskripsi = kolom[1] || ''; 
-                        const stok = kolom[2] || 'Siap Dana';
-                        const harga = kolom[3] || 'Cek WhatsApp';
-                        const linkGambar = kolom[4] || 'https://images.unsplash.com/photo-1599643478524-fb524a87c920?w=600&q=80';
+                // Lewati jika baris kosong
+                if (!namaBarang) continue;
 
-                        // DIUPDATE: Gaya HTML injeksi Javascript diubah agar cocok dengan tema gelap (Teks Putih/Emas)
-                        htmlKartu += `
-                            <div class="card reveal active" style="text-align: left; font-family: 'Segoe UI', sans-serif; background: #151515; border: 1px solid #333;">
-                                <div class="img-zoom-container" style="border: 1px solid #222;">
-                                    <img src="${linkGambar.trim()}" alt="${namaBarang}" class="zoom-img">
-                                </div>
-                                <h3 style="margin-top: 15px; margin-bottom: 5px; font-family: 'Playfair Display', serif; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${namaBarang}</h3>
-                                <p style="font-size: 0.95rem; margin-bottom: 20px; color: #a0a0a0;">${deskripsi}</p>
-                                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #333; padding-top: 20px;">
-                                    <div>
-                                        <span style="display: block; font-size: 0.8rem; color: #888;">Layanan: <span style="color:var(--gold-primary); font-weight:bold;">${stok}</span></span>
-                                        <span style="font-weight: bold; font-size: 1.2rem; color: var(--gold-light);">${harga}</span>
-                                    </div>
-                                    <a href="https://wa.me/6285692232383?text=Halo%20Dani%20Gold,%20saya%20ingin%20tanya%20harga%20buyback%20untuk%20${encodeURIComponent(namaBarang)}" target="_blank" class="opt-btn" style="text-decoration: none; background: var(--gold-gradient); color: #000; padding: 10px 15px; border-radius: 4px; font-weight: bold;">Cairkan</a>
-                                </div>
-                            </div>
-                        `;
-                    }
-                });
-                wadahBarang.innerHTML = htmlKartu;
-            } catch (error) {
-                console.error("Gagal mengambil data dari spreadsheet:", error);
-                wadahBarang.innerHTML = '<p style="text-align: center; color: var(--gold-primary);">Daftar harga sedang diperbarui. Silakan hubungi kami via WhatsApp untuk harga terkini.</p>';
+                const hargaVal = data.getValue(i, 1);
+                const harga = (hargaVal !== null && hargaVal !== undefined && hargaVal.toString().trim() !== '') 
+                              ? hargaVal.toString().trim() 
+                              : 'Hubungi Kami';
+
+                const waUrl = `https://wa.me/6285692232383?text=Halo%20Dani%20Gold,%20saya%20ingin%20cairkan%20${encodeURIComponent(namaBarang)}`;
+
+                // Style selang-seling baris tabel (Zebra Striping)
+                const bgStyle = (i % 2 === 0) ? 'background-color: #121212;' : 'background-color: #1a1a1a;';
+
+                htmlBaris += `
+                    <tr style="${bgStyle} border-bottom: 1px solid #2a2a2a; transition: background 0.3s;" onmouseover="this.style.backgroundColor='#252525'" onmouseout="this.style.backgroundColor='${(i % 2 === 0) ? '#121212' : '#1a1a1a'}'">
+                        <!-- NAMA ITEM (BISA DIKLIK KELUAR WA) -->
+                        <td style="padding: 14px 20px; font-weight: 600;">
+                            <a href="${waUrl}" target="_blank" style="color: #ffffff; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold-primary)'" onmouseout="this.style.color='#ffffff'">
+                                ${namaBarang}
+                            </a>
+                        </td>
+                        <!-- HARGA BUYBACK -->
+                        <td style="padding: 14px 20px; text-align: right; color: var(--gold-light); font-weight: bold; font-size: 1.05rem;">
+                            ${harga}
+                        </td>
+                        <!-- TOMBOL CAIRKAN / WA -->
+                        <td style="padding: 14px 20px; text-align: center;">
+                            <a href="${waUrl}" target="_blank" class="opt-btn" style="text-decoration: none; background: var(--gold-gradient); color: #000; padding: 6px 14px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; display: inline-block;">
+                                Cairkan
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            }
+
+            if (htmlBaris === '') {
+                tabelBody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 20px; color: var(--gold-primary);">Belum ada data harga tersedia saat ini.</td></tr>';
+            } else {
+                tabelBody.innerHTML = htmlBaris;
             }
         }
-        ambilDataGudang();
+
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(muatDataEmas);
     </script>
+
 </body>
 </html>
